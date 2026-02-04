@@ -41,7 +41,28 @@ public class BibliotecaApp {
     }
 
     // ====== CRUD (por implementar) ======
-    static void registrarPrestamo() { /* TODO */ }
+    static void registrarPrestamo() {
+    System.out.println("--- Registrar nuevo préstamo ---");
+
+    int idPrestamo = leerEntero("ID del préstamo: ");
+    String nombreUsuario = leerTexto("Nombre del usuario: ");
+    String tituloLibro = leerTexto("Título del libro: ");
+    int diasPrestamo = leerEntero("Días de préstamo: ");
+    System.out.println("2000$ multa por día de retraso");
+    int multaPorDia = 2000;
+
+    ArrayList<Object> prestamo = new ArrayList<>();
+    prestamo.add(idPrestamo);
+    prestamo.add(nombreUsuario);
+    prestamo.add(tituloLibro);
+    prestamo.add(diasPrestamo);
+    prestamo.add(multaPorDia);
+
+    prestamos.add(prestamo);
+
+    System.out.println("Préstamo registrado correctamente.");
+}
+
     static void mostrarPrestamos() { /* TODO */ }
     static void buscarPrestamoPorId() { /* TODO */ }
     static void actualizarPrestamo() { /* TODO */ }
