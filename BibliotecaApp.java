@@ -68,7 +68,13 @@ public class BibliotecaApp {
     static void eliminarPrestamo() { /* TODO */ }
 
     // ====== Cálculo (por implementar) ======
-    static void calcularTotalMultas() { /* TODO */ }
+    static void calcularTotalMultas() { 
+        int diamulta.get(3);
+        int valormulta.get(4);
+        int totalmulta = diamulta * valormulta;
+        System.out.println("El total de multas es: " + totalmulta);
+
+    }
 
     // ====== Utilidades mínimas ======
     static int leerEntero(String msg) {
