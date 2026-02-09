@@ -68,13 +68,18 @@ public class BibliotecaApp {
     static void eliminarPrestamo() { /* TODO */ }
 
     // ====== Cálculo (por implementar) ======
-    static void calcularTotalMultas() { 
-        int diamulta.get(3);
-        int valormulta.get(4);
-        int totalmulta = diamulta * valormulta;
-        System.out.println("El total de multas es: " + totalmulta);
+static void calcularTotalMultas() {
+    int totalMulta = 0;
 
+    for (ArrayList<Object> prestamo : prestamos) {
+        int diasPrestamo = (int) prestamo.get(3);
+        int multaPorDia = (int) prestamo.get(4);
+        totalMulta += diasPrestamo * multaPorDia;
     }
+
+    System.out.println("El total de multas es: " + totalMulta);
+}
+
 
     // ====== Utilidades mínimas ======
     static int leerEntero(String msg) {
@@ -92,4 +97,4 @@ public class BibliotecaApp {
         System.out.print(msg);
         return sc.nextLine().trim();
     }
-}
+}}
