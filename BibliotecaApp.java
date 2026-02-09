@@ -42,10 +42,47 @@ public class BibliotecaApp {
 
     // ====== CRUD (por implementar) ======
     static void registrarPrestamo() { /* TODO */ }
-    static void mostrarPrestamos() { /* TODO */ }
+    static void mostrarPrestamos() { /* TODO */
+
+    if (prestamos.isEmpty()){
+        System.println("No hay prestamos registrados")
+        return;
+
+    }
+    System.out.println("-- Lista de Préstamos --");
+    for(ArrayList<Object> p: prestamos){
+        System.println("ID: " +p.get(0)+
+        ", Usuario: " +p.get(1)+
+        ", Libro: " +p.get(2)+
+        ", Dias: " +p.get(3)+
+        ", Multa/dia: " +p.get(4));
+        
+        }
+
+    }
     static void buscarPrestamoPorId() { /* TODO */ }
     static void actualizarPrestamo() { /* TODO */ }
-    static void eliminarPrestamo() { /* TODO */ }
+    static void eliminarPrestamo() { /* TODO */ 
+    if (prestamos.isEmpty()) { 
+        System.out.println("No hay préstamos registrados."); 
+        return; 
+        } 
+        
+        int id = leerEntero("Ingrese el ID del préstamo a eliminar: "); 
+        boolean eliminado = false; 
+        for (int i = 0; i < prestamos.size(); i++) { 
+            ArrayList<Object> p = prestamos.get(i); 
+            if ((int) p.get(0) == id) { prestamos.remove(i); 
+            System.out.println("Préstamo con ID " + id + " eliminado correctamente."); 
+            eliminado = true; 
+            break;
+            }
+
+            } 
+            if (!eliminado) {
+                 System.out.println("No se encontró un préstamo con ID " + id + "."); 
+            } 
+            }
 
     // ====== Cálculo (por implementar) ======
     static void calcularTotalMultas() { /* TODO */ }
