@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class BibliotecaApp {
 
-    // prestamo = [idPrestamo, nombreUsuario, tituloLibro, diasPrestamo, multaPorDia]
     static ArrayList<ArrayList<Object>> prestamos = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
 
@@ -41,27 +40,29 @@ public class BibliotecaApp {
     }
 
     // ====== CRUD (por implementar) ======
-    static void registrarPrestamo() { /* TODO */ }
-    static void mostrarPrestamos() { /* TODO */
+    static void registrarPrestamo() {
+    System.out.println("--- Registrar nuevo préstamo ---");
 
-    if (prestamos.isEmpty()){
-        System.println("No hay prestamos registrados")
-        return;
+    int idPrestamo = leerEntero("ID del préstamo: ");
+    String nombreUsuario = leerTexto("Nombre del usuario: ");
+    String tituloLibro = leerTexto("Título del libro: ");
+    int diasPrestamo = leerEntero("Días de préstamo: ");
+    System.out.println("2000$ multa por día de retraso");
+    int multaPorDia = 2000;
 
-    }
-    System.out.println("-- Lista de Préstamos --");
-    for(ArrayList<Object> p: prestamos){
-        System.println("ID: " +p.get(0)+
-        ", Usuario: " +p.get(1)+
-        ", Libro: " +p.get(2)+
-        ", Dias: " +p.get(3)+
-        ", Multa/dia: " +p.get(4));
-        
-        }
+    ArrayList<Object> prestamo = new ArrayList<>();
+    prestamo.add(idPrestamo);
+    prestamo.add(nombreUsuario);
+    prestamo.add(tituloLibro);
+    prestamo.add(diasPrestamo);
+    prestamo.add(multaPorDia);
 
-    }
+    prestamos.add(prestamo);
 
+    System.out.println("Préstamo registrado correctamente.");
+}
 
+    static void mostrarPrestamos() { /* TODO */ }
     static void buscarPrestamoPorId() { /* TODO */ }
     static void actualizarPrestamo() { /* TODO */ }
     static void eliminarPrestamo() { /* TODO */ 
@@ -88,7 +89,18 @@ public class BibliotecaApp {
             }
 
     // ====== Cálculo (por implementar) ======
-    static void calcularTotalMultas() { /* TODO */ }
+static void calcularTotalMultas() {
+    int totalMulta = 0;
+
+    for (ArrayList<Object> prestamo : prestamos) {
+        int diasPrestamo = (int) prestamo.get(3);
+        int multaPorDia = (int) prestamo.get(4);
+        totalMulta += diasPrestamo * multaPorDia;
+    }
+
+    System.out.println("El total de multas es: " + totalMulta);
+}
+
 
     // ====== Utilidades mínimas ======
     static int leerEntero(String msg) {
@@ -106,4 +118,4 @@ public class BibliotecaApp {
         System.out.print(msg);
         return sc.nextLine().trim();        
     }
-}
+}}
