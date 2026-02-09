@@ -65,7 +65,28 @@ public class BibliotecaApp {
     static void mostrarPrestamos() { /* TODO */ }
     static void buscarPrestamoPorId() { /* TODO */ }
     static void actualizarPrestamo() { /* TODO */ }
-    static void eliminarPrestamo() { /* TODO */ }
+    static void eliminarPrestamo() { /* TODO */ 
+    if (prestamos.isEmpty()) { 
+        System.out.println("No hay préstamos registrados."); 
+        return; 
+        } 
+        
+        int id = leerEntero("Ingrese el ID del préstamo a eliminar: "); 
+        boolean eliminado = false; 
+        for (int i = 0; i < prestamos.size(); i++) { 
+            ArrayList<Object> p = prestamos.get(i); 
+            if ((int) p.get(0) == id) { prestamos.remove(i); 
+            System.out.println("Préstamo con ID " + id + " eliminado correctamente."); 
+            eliminado = true; 
+            break;
+            }
+
+            } 
+            if (!eliminado) {
+                 System.out.println("No se encontró un préstamo con ID " + id + "."); 
+            } 
+            
+            }
 
     // ====== Cálculo (por implementar) ======
 static void calcularTotalMultas() {
@@ -95,6 +116,6 @@ static void calcularTotalMultas() {
 
     static String leerTexto(String msg) {
         System.out.print(msg);
-        return sc.nextLine().trim();
+        return sc.nextLine().trim();        
     }
 }}
