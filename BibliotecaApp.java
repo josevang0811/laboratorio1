@@ -62,7 +62,33 @@ public class BibliotecaApp {
     }
 
 
-    static void buscarPrestamoPorId() { /* TODO */ }
+    static void buscarPrestamoPorId() {
+    int id = leerEntero("Ingrese el ID del préstamo a actualizar: ");
+    boolean encontrado = false;
+
+    for (ArrayList<Object> prestamo : prestamos) {
+        if ((int) prestamo.get(0) == id) {
+            encontrado = true;
+
+            String nuevoUsuario = leerTexto("Nuevo nombre de usuario: ");
+            String nuevoTitulo = leerTexto("Nuevo título del libro: ");
+            int nuevosDias = leerEntero("Nuevos días de préstamo: ");
+            int nuevaMulta = leerEntero("Nueva multa por día: ");
+
+            prestamo.set(1, nuevoUsuario);
+            prestamo.set(2, nuevoTitulo);
+            prestamo.set(3, nuevosDias);
+            prestamo.set(4, nuevaMulta);
+
+            System.out.println("Préstamo actualizado correctamente.");
+            break;
+        }
+    }
+
+    if (!encontrado) {
+        System.out.println("Préstamo no encontrado.");
+    }
+}
     static void actualizarPrestamo() { /* TODO */ }
     static void eliminarPrestamo() { /* TODO */ 
     if (prestamos.isEmpty()) { 
