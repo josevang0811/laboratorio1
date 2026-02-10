@@ -64,7 +64,6 @@ public class BibliotecaApp {
 
     static void mostrarPrestamos() { /* TODO */ }
     static void buscarPrestamoPorId() { 
-    leerTexto sc 
 
 System.out.print("Ingrese el ID del préstamo a buscar: ");
 int idBuscado = sc.nextInt();
@@ -88,6 +87,7 @@ for (prestamos[]) {
 
 if (!encontrado) {
     System.out.println("No existe un préstamo con ese ID.");
+}
 }
     static void actualizarPrestamo() {
     int id = leerEntero("Ingrese el ID del préstamo a actualizar: ");
