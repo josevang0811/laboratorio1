@@ -76,7 +76,6 @@ public class BibliotecaApp {
 
     } 
 }
-
     static void buscarPrestamoPorId() { 
     leerTexto sc 
 
