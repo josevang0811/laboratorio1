@@ -76,26 +76,10 @@ public class BibliotecaApp {
 
     } 
 }
-    static void buscarPrestamoPorId() { 
-    leerTexto sc 
-
-System.out.print("Ingrese el ID del préstamo a buscar: ");
-int idBuscado = sc.nextInt();
-
-boolean encontrado = false;
-
-for (prestamos[]) {
-    int idPrestamo = (int) prestamo.get(0);
-
-    if (idPrestamo == idBuscado) {
-        System.out.println("Préstamo encontrado");
-        System.out.println("ID: " + prestamo.get(0));
-        System.out.println("Usuario: " + prestamo.get(1));
-        System.out.println("Libro: " + prestamo.get(2));
-        System.out.println("Días de préstamo: " + prestamo.get(3));
-        System.out.println("Multa por día: $" + prestamo.get(4));
-        encontrado = true;
-        break;
+    static void buscarPrestamoPorId() {
+    if (prestamos.isEmpty()) {
+        System.out.println("No hay préstamos registrados.");
+        return;
     }
 
     int idBuscado = leerEntero("Ingrese el ID del préstamo a buscar: ");
@@ -120,6 +104,7 @@ for (prestamos[]) {
         System.out.println("No existe un préstamo con ese ID.");
     }
 }
+
 
     static void actualizarPrestamo() {
     int id = leerEntero("Ingrese el ID del préstamo a actualizar: ");
@@ -148,7 +133,7 @@ for (prestamos[]) {
         System.out.println("Préstamo no encontrado.");
     }
 }
-    static void eliminarPrestamo() { /* TODO */ 
+    static void eliminarPrestamo() {
     if (prestamos.isEmpty()) { 
         System.out.println("No hay préstamos registrados."); 
         return; 
