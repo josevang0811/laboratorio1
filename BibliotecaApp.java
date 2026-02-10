@@ -62,11 +62,40 @@ public class BibliotecaApp {
     System.out.println("Préstamo registrado correctamente.");
 }
 
-    static void mostrarPrestamos() { /* TODO */ }
-    static void buscarPrestamoPorId() {
-    if (prestamos.isEmpty()) {
-        System.out.println("No hay préstamos registrados.");
-        return;
+    static void mostrarPrestamos() { 
+        if (prestamos.isEmpty()) { 
+            System.out.println("No hay préstamos registrados."); 
+            return; 
+        } System.out.println("=== Lista de Préstamos ==="); 
+        for (ArrayList<Object> p : prestamos) { 
+            System.out.println("ID: " + p.get(0) + 
+            ", Usuario: " + p.get(1) + 
+            ", Libro: " + p.get(2) + 
+            ", Días: " + p.get(3) + 
+            ", Multa/día: " + p.get(4)); 
+
+    } 
+}
+    static void buscarPrestamoPorId() { 
+    leerTexto sc 
+
+System.out.print("Ingrese el ID del préstamo a buscar: ");
+int idBuscado = sc.nextInt();
+
+boolean encontrado = false;
+
+for (prestamos[]) {
+    int idPrestamo = (int) prestamo.get(0);
+
+    if (idPrestamo == idBuscado) {
+        System.out.println("Préstamo encontrado");
+        System.out.println("ID: " + prestamo.get(0));
+        System.out.println("Usuario: " + prestamo.get(1));
+        System.out.println("Libro: " + prestamo.get(2));
+        System.out.println("Días de préstamo: " + prestamo.get(3));
+        System.out.println("Multa por día: $" + prestamo.get(4));
+        encontrado = true;
+        break;
     }
 
     int idBuscado = leerEntero("Ingrese el ID del préstamo a buscar: ");
