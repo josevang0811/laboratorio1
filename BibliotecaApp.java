@@ -113,7 +113,6 @@ if (!encontrado) {
             if (!eliminado) {
                  System.out.println("No se encontró un préstamo con ID " + id + "."); 
             } 
-            
             }
 
     // ====== Cálculo (por implementar) ======
