@@ -13,14 +13,14 @@ public class BibliotecaApp {
             opcion = leerEntero("Seleccione una opción: ");
 
             switch (opcion) {
-                case 1 -> registrarPrestamo();
-                case 2 -> mostrarPrestamos();
-                case 3 -> buscarPrestamoPorId();
-                case 4 -> actualizarPrestamo();
-                case 5 -> eliminarPrestamo();
-                case 6 -> calcularTotalMultas();
-                case 7 -> System.out.println("Saliendo...");
-                default -> System.out.println("Opción inválida.");
+                case 1 : registrarPrestamo();
+                case 2 : mostrarPrestamos();
+                case 3 : buscarPrestamoPorId();
+                case 4 : actualizarPrestamo();
+                case 5 : eliminarPrestamo();
+                case 6 : calcularTotalMultas();
+                case 7 : System.out.println("Saliendo...");
+                default : System.out.println("Opción inválida.");
             }
             System.out.println();
         } while (opcion != 7);
@@ -97,17 +97,30 @@ for (prestamos[]) {
         encontrado = true;
         break;
     }
+
+    int idBuscado = leerEntero("Ingrese el ID del préstamo a buscar: ");
+    boolean encontrado = false;
+
+    for (ArrayList<Object> prestamo : prestamos) {
+        int idPrestamo = (int) prestamo.get(0);
+
+        if (idPrestamo == idBuscado) {
+            System.out.println("Préstamo encontrado:");
+            System.out.println("ID: " + prestamo.get(0));
+            System.out.println("Usuario: " + prestamo.get(1));
+            System.out.println("Libro: " + prestamo.get(2));
+            System.out.println("Días de préstamo: " + prestamo.get(3));
+            System.out.println("Multa por día: $" + prestamo.get(4));
+            encontrado = true;
+            break;
+        }
+    }
+
+    if (!encontrado) {
+        System.out.println("No existe un préstamo con ese ID.");
+    }
 }
 
-if (!encontrado) {
-    System.out.println("No existe un préstamo con ese ID.");
-}
-
-
-     }
-
-
-     
     static void actualizarPrestamo() {
     int id = leerEntero("Ingrese el ID del préstamo a actualizar: ");
     boolean encontrado = false;
@@ -135,8 +148,6 @@ if (!encontrado) {
         System.out.println("Préstamo no encontrado.");
     }
 }
-
-
     static void eliminarPrestamo() { /* TODO */ 
     if (prestamos.isEmpty()) { 
         System.out.println("No hay préstamos registrados."); 
@@ -157,7 +168,6 @@ if (!encontrado) {
             if (!eliminado) {
                  System.out.println("No se encontró un préstamo con ID " + id + "."); 
             } 
-            
             }
 
     // ====== Cálculo (por implementar) ======
@@ -190,4 +200,4 @@ static void calcularTotalMultas() {
         System.out.print(msg);
         return sc.nextLine().trim();        
     }
-}}
+}
