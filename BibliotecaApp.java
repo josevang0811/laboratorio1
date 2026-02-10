@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class BibliotecaApp {
 
-    // prestamo = [idPrestamo, nombreUsuario, tituloLibro, diasPrestamo, multaPorDia]
     static ArrayList<ArrayList<Object>> prestamos = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
 
@@ -41,53 +40,54 @@ public class BibliotecaApp {
     }
 
     // ====== CRUD (por implementar) ======
-    static void registrarPrestamo() { /* TODO */ }
-    static void mostrarPrestamos() { /* TODO */
+    static void registrarPrestamo() {
+    System.out.println("--- Registrar nuevo préstamo ---");
 
-    if (prestamos.isEmpty()){
-        System.println("No hay prestamos registrados")
-        return;
+    int idPrestamo = leerEntero("ID del préstamo: ");
+    String nombreUsuario = leerTexto("Nombre del usuario: ");
+    String tituloLibro = leerTexto("Título del libro: ");
+    int diasPrestamo = leerEntero("Días de préstamo: ");
+    System.out.println("2000$ multa por día de retraso");
+    int multaPorDia = 2000;
 
+    ArrayList<Object> prestamo = new ArrayList<>();
+    prestamo.add(idPrestamo);
+    prestamo.add(nombreUsuario);
+    prestamo.add(tituloLibro);
+    prestamo.add(diasPrestamo);
+    prestamo.add(multaPorDia);
+
+    prestamos.add(prestamo);
+
+    System.out.println("Préstamo registrado correctamente.");
+}
+
+    static void mostrarPrestamos() { /* TODO */ }
+    static void buscarPrestamoPorId() { 
+    leerTexto sc 
+
+System.out.print("Ingrese el ID del préstamo a buscar: ");
+int idBuscado = sc.nextInt();
+
+boolean encontrado = false;
+
+for (prestamos[]) {
+    int idPrestamo = (int) prestamo.get(0);
+
+    if (idPrestamo == idBuscado) {
+        System.out.println("Préstamo encontrado");
+        System.out.println("ID: " + prestamo.get(0));
+        System.out.println("Usuario: " + prestamo.get(1));
+        System.out.println("Libro: " + prestamo.get(2));
+        System.out.println("Días de préstamo: " + prestamo.get(3));
+        System.out.println("Multa por día: $" + prestamo.get(4));
+        encontrado = true;
+        break;
     }
-    System.out.println("-- Lista de Préstamos --");
-    for(ArrayList<Object> p: prestamos){
-        System.println("ID: " +p.get(0)+
-        ", Usuario: " +p.get(1)+
-        ", Libro: " +p.get(2)+
-        ", Dias: " +p.get(3)+
-        ", Multa/dia: " +p.get(4));
-        
-        }
+}
 
-    }
-
-
-    static void buscarPrestamoPorId() {
-    int id = leerEntero("Ingrese el ID del préstamo a actualizar: ");
-    boolean encontrado = false;
-
-    for (ArrayList<Object> prestamo : prestamos) {
-        if ((int) prestamo.get(0) == id) {
-            encontrado = true;
-
-            String nuevoUsuario = leerTexto("Nuevo nombre de usuario: ");
-            String nuevoTitulo = leerTexto("Nuevo título del libro: ");
-            int nuevosDias = leerEntero("Nuevos días de préstamo: ");
-            int nuevaMulta = leerEntero("Nueva multa por día: ");
-
-            prestamo.set(1, nuevoUsuario);
-            prestamo.set(2, nuevoTitulo);
-            prestamo.set(3, nuevosDias);
-            prestamo.set(4, nuevaMulta);
-
-            System.out.println("Préstamo actualizado correctamente.");
-            break;
-        }
-    }
-
-    if (!encontrado) {
-        System.out.println("Préstamo no encontrado.");
-    }
+if (!encontrado) {
+    System.out.println("No existe un préstamo con ese ID.");
 }
     static void actualizarPrestamo() {
     int id = leerEntero("Ingrese el ID del préstamo a actualizar: ");
@@ -139,7 +139,18 @@ public class BibliotecaApp {
             }
 
     // ====== Cálculo (por implementar) ======
-    static void calcularTotalMultas() { /* TODO */ }
+static void calcularTotalMultas() {
+    int totalMulta = 0;
+
+    for (ArrayList<Object> prestamo : prestamos) {
+        int diasPrestamo = (int) prestamo.get(3);
+        int multaPorDia = (int) prestamo.get(4);
+        totalMulta += diasPrestamo * multaPorDia;
+    }
+
+    System.out.println("El total de multas es: " + totalMulta);
+}
+
 
     // ====== Utilidades mínimas ======
     static int leerEntero(String msg) {
@@ -157,4 +168,4 @@ public class BibliotecaApp {
         System.out.print(msg);
         return sc.nextLine().trim();        
     }
-}
+}}
