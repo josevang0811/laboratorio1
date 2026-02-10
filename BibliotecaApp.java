@@ -13,13 +13,13 @@ public class BibliotecaApp {
             opcion = leerEntero("Seleccione una opción: ");
 
             switch (opcion) {
-                case 1 : registrarPrestamo();
-                case 2 : mostrarPrestamos();
-                case 3 : buscarPrestamoPorId();
-                case 4 : actualizarPrestamo();
-                case 5 : eliminarPrestamo();
-                case 6 : calcularTotalMultas();
-                case 7 : System.out.println("Saliendo...");
+                case 1 : registrarPrestamo();break;
+                case 2 : mostrarPrestamos();break;
+                case 3 : buscarPrestamoPorId();break;
+                case 4 : actualizarPrestamo();break;
+                case 5 : eliminarPrestamo();break;
+                case 6 : calcularTotalMultas();break;
+                case 7 : System.out.println("Saliendo...");break;
                 default : System.out.println("Opción inválida.");
             }
             System.out.println();
