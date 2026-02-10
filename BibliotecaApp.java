@@ -62,7 +62,20 @@ public class BibliotecaApp {
     System.out.println("Préstamo registrado correctamente.");
 }
 
-    static void mostrarPrestamos() { /* TODO */ }
+    static void mostrarPrestamos() { 
+        if (prestamos.isEmpty()) { 
+            System.out.println("No hay préstamos registrados."); 
+            return; 
+        } System.out.println("=== Lista de Préstamos ==="); 
+        for (ArrayList<Object> p : prestamos) { 
+            System.out.println("ID: " + p.get(0) + 
+            ", Usuario: " + p.get(1) + 
+            ", Libro: " + p.get(2) + 
+            ", Días: " + p.get(3) + 
+            ", Multa/día: " + p.get(4)); 
+
+    } 
+}
     static void buscarPrestamoPorId() { 
     leerTexto sc 
 
